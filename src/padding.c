@@ -4,13 +4,6 @@
 
 #include "sha2_impl.h"
 
-size_t SHA256PaddingLength(size_t message_length) {
-  size_t remainder_bytes = (message_length + 8) % (kSHA256BlockSize / 8);
-  size_t filler_bytes = (kSHA256BlockSize / 8) - remainder_bytes;
-  size_t zero_bytes = filler_bytes - 1;
-  return 1 + zero_bytes + 8;
-}
-
 size_t SHA256Padding(uint8_t output[], size_t message_length) {
   size_t remainder_bytes = (message_length + 8) % (kSHA256BlockSize / 8);
   size_t filler_bytes = (kSHA256BlockSize / 8) - remainder_bytes;
@@ -29,13 +22,6 @@ size_t SHA256Padding(uint8_t output[], size_t message_length) {
   output[filler_bytes + 7] = message_bitsize & 0xff;
 
   return 1 + zero_bytes + 8;
-}
-
-size_t SHA512PaddingLength(size_t message_length) {
-  size_t remainder_bytes = (message_length + 16) % (kSHA512BlockSize / 8);
-  size_t filler_bytes = (kSHA512BlockSize / 8) - remainder_bytes;
-  size_t zero_bytes = filler_bytes - 1;
-  return 1 + zero_bytes + 16;
 }
 
 size_t SHA512Padding(uint8_t output[], size_t message_length) {
