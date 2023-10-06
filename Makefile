@@ -24,6 +24,7 @@ else
 	override EXE_LDFLAGS += $(STATIC_LIB)
 endif
 
+.PHONY: all
 all: $(SHARED_LIB) $(STATIC_LIB) $(EXE) $(EXE_SYMLINKS)
 
 $(SHARED_LIB): LDFLAGS += $(LIB_LDFLAGS)
