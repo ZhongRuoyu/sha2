@@ -1,0 +1,9 @@
+*.o
+libsha2.a
+libsha2.dylib
+libsha2.so
+sha2
+sha224sum
+sha256sum
+sha384sum
+sha512sum
