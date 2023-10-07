@@ -102,7 +102,7 @@ void SHA256Final(uint8_t digest[], const struct SHA256Context *ctx) {
       SHA256Padding(padded_buffer + original_length, ctx->length);
   size_t padded_length = original_length + padding_length;
   assert(padded_length == kSHA256BlockSize / 8 ||
-         padded_length == 2UL * (kSHA256BlockSize / 8));
+         padded_length == 2ULL * (kSHA256BlockSize / 8));
 
   uint32_t state[kSHA256StateSize / 32];
   memcpy(state, ctx->state, sizeof(state));
@@ -128,7 +128,7 @@ void SHA224Final(uint8_t digest[], const struct SHA224Context *ctx) {
       SHA256Padding(padded_buffer + original_length, ctx->length);
   size_t padded_length = original_length + padding_length;
   assert(padded_length == kSHA256BlockSize / 8 ||
-         padded_length == 2UL * (kSHA256BlockSize / 8));
+         padded_length == 2ULL * (kSHA256BlockSize / 8));
 
   uint32_t state[kSHA256StateSize / 32];
   memcpy(state, ctx->state, sizeof(state));
@@ -154,7 +154,7 @@ void SHA512Final(uint8_t digest[], const struct SHA512Context *ctx) {
       SHA512Padding(padded_buffer + original_length, ctx->length);
   size_t padded_length = original_length + padding_length;
   assert(padded_length == (kSHA512BlockSize / 8) ||
-         padded_length == 2UL * (kSHA512BlockSize / 8));
+         padded_length == 2ULL * (kSHA512BlockSize / 8));
 
   uint64_t state[kSHA512StateSize / 64];
   memcpy(state, ctx->state, sizeof(state));
@@ -184,7 +184,7 @@ void SHA384Final(uint8_t digest[], const struct SHA384Context *ctx) {
       SHA512Padding(padded_buffer + original_length, ctx->length);
   size_t padded_length = original_length + padding_length;
   assert(padded_length == (kSHA512BlockSize / 8) ||
-         padded_length == 2UL * (kSHA512BlockSize / 8));
+         padded_length == 2ULL * (kSHA512BlockSize / 8));
 
   uint64_t state[kSHA512StateSize / 64];
   memcpy(state, ctx->state, sizeof(state));
