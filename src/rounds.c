@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "sha2.h"
 #include "sha2_impl.h"
 
 enum { kSHA256Rounds = 64 };

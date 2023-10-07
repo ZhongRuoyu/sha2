@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "sha2.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif

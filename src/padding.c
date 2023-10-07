@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "sha2.h"
 #include "sha2_impl.h"
 
 size_t SHA256Padding(uint8_t output[], size_t message_length) {
