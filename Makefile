@@ -1,4 +1,5 @@
-CFLAGS ?= -std=c11 -O3 -DNDEBUG
+CPPFLAGS ?= -DNDEBUG
+CFLAGS ?= -std=c11 -O3
 
 SOEXT = so
 ifeq ($(shell uname -s),Darwin)
