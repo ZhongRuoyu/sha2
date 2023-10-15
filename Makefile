@@ -28,23 +28,23 @@ endif
 .PHONY: all
 all: $(SHARED_LIB) $(STATIC_LIB) $(EXE) $(EXE_SYMLINKS)
 
-$(SHARED_LIB): LDFLAGS += $(LIB_LDFLAGS)
+$(SHARED_LIB): override LDFLAGS += $(LIB_LDFLAGS)
 $(SHARED_LIB): $(LIB_OBJS)
 	$(CC) $(LDFLAGS) -shared -o $@ $^
 
 $(STATIC_LIB): $(LIB_OBJS)
 	$(AR) rcs $@ $^
 
-$(LIB_OBJS): CPPFLAGS += $(LIB_CPPFLAGS)
-$(LIB_OBJS): CFLAGS += $(LIB_CFLAGS)
+$(LIB_OBJS): override CPPFLAGS += $(LIB_CPPFLAGS)
+$(LIB_OBJS): override CFLAGS += $(LIB_CFLAGS)
 $(LIB_OBJS): %.o: %.c
 
-$(EXE): LDFLAGS += $(EXE_LDFLAGS)
+$(EXE): override LDFLAGS += $(EXE_LDFLAGS)
 $(EXE): $(EXE_OBJS) $(EXE_LINK_LIB)
 	$(CC) $(LDFLAGS) $(EXE_OBJS) -o $@
 
-$(EXE_OBJS): CPPFLAGS += $(EXE_CPPFLAGS)
-$(EXE_OBJS): CFLAGS += $(EXE_CFLAGS)
+$(EXE_OBJS): override CPPFLAGS += $(EXE_CPPFLAGS)
+$(EXE_OBJS): override CFLAGS += $(EXE_CFLAGS)
 $(EXE_OBJS): %.o: %.c
 
 $(EXE_SYMLINKS): %: $(EXE)
